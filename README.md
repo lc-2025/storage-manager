@@ -6,7 +6,7 @@ A browser storage library.
 
 ## About
 
-An out-of-the-box `Storage API` helper to manage browser storage actions.
+An out-of-the-box `Storage API` _NPM_ package to manage browser storage actions.
 
 ## Features
 
