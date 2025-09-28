@@ -59,7 +59,7 @@ TODO:
 
 ## Contributing
 
-## Setting Up
+### Setting Up
 
 On terminal, from project root:
 
