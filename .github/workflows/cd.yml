@@ -1,0 +1,37 @@
+name: Storage Manager CD
+run-name: Storage Manager Continuous-Delivery
+on:
+  workflow_run:
+    workflows: [LC 2.0 CI]
+    types: [completed]
+    branches: [main]
+env:
+  DEPENDENCIES_PATH: |
+    ~/.cache
+    ./node_modules
+  DEPENDENCIES_KEY: '**/package-lock.json'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Getting dependencies
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.DEPENDENCIES_PATH }}
+          key: modules-${{ hashFiles(env.DEPENDENCIES_KEY) }}
+      - name: Getting production artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: storage-manager-production
+          github-token: ${{ secrets.GH_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: Deploy
+        run: npm run deploy
+  failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
