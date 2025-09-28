@@ -51,7 +51,7 @@ Please read about its specifications before commit on any branch.
 ### Security
 
 For any sensitive data referred to the project - i.e. keys, password, secret settings, etc. - please make sure to set them in a local `.env*.*` file as expected and then list it in the `.gitignore`.
-To make known their presence to other contributors, add them to the `.env.dist` file as a placeholder
+To make known their presence to other contributors, add them to the `.env.dist` file as a placeholder.
 
 ### Commits
 

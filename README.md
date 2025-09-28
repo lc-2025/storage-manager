@@ -81,11 +81,28 @@ npm run lint
 npm run build
 ```
 
-- To run the tests in `testing` mode (staging or content-integration/delivery environments)
+### Tests
+
+#### Unit
+
+On terminal, from project root:
+
+- To run the unit/integration tests in `development` mode
 
 ```bash
 npm run test
 ```
+
+- To run the tests in `testing` mode (staging or content-integration/delivery environments)
+
+```bash
+npm run test:ci
+```
+
+### Deploy
+
+_Storage Manager_ is integrated and delivered to production via _GitHub Actions_ workflows pipeline, where the package is being set up, tested and built.
+Then the artifacts are deployed on _NPM_ registry available at []().
 
 - To deploy the production version
 
@@ -93,4 +110,4 @@ npm run test
 npm run deploy
 ```
 
-Please read more about required best practices on the specific [contributing reference document](./.github/CONTRIBUTING.md)
+Please read more about required best practices on the specific [contributing reference document](./.github/CONTRIBUTING.md).
