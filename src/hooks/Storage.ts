@@ -1,19 +1,20 @@
 import { Storage } from '@/types/hooks/Storage.ts';
-import type { TUseStorage } from '@/types/hooks/Storage.ts';
+import type { TUseStorage, TUseStorageType } from '@/types/hooks/Storage.ts';
 
 /**
  * @description Storage hook
  * @author Luca Cattide
- * @date 28/09/2025
- * @param {string} type
+ * @param {TUseStorageType} [type]
  * @returns {*}  {TUseStorage}
  */
-const useStorage = (type: string): TUseStorage => {
+const useStorage = (type?: TUseStorageType): TUseStorage => {
   const storageType = {
     [Storage.Local]: localStorage,
     [Storage.Session]: sessionStorage,
   };
-  const storage = storageType[type as keyof typeof storageType];
+  const storage = type
+    ? storageType[type as keyof typeof storageType]
+    : storageType[Storage.Local];
 
   /**
    * @description Storage getter

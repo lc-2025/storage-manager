@@ -9,5 +9,7 @@ type TUseStorage = {
   deleteStorages: (items: Array<string>) => void;
 };
 
+type TUseStorageType = 'local' | 'session';
+
 export { Storage };
-export type { TUseStorage };
+export type { TUseStorage, TUseStorageType };
