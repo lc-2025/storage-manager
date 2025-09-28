@@ -10,7 +10,7 @@ An out-of-the-box `Storage API` helper to manage browser storage actions.
 
 ## Features
 
-- Both Local than Session objects.
+- Both Local than Session objects
 - Usable as a standalone utility as well as a _React_ hook
 
 ## Stack
