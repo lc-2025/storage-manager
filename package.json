@@ -1,9 +1,13 @@
 {
-  "name": "storage-manager",
+  "name": "@lc/storage-manager",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . && prettier --write . && prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --project ./tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -12,13 +16,28 @@
   "keywords": [
     "storage",
     "manager",
-    "localstorage"
+    "localstorage",
+    "sessionstorage",
+    "react",
+    "hook"
   ],
   "author": "LC",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lc-2025/storage-manager/issues"
   },
   "homepage": "https://github.com/lc-2025/storage-manager#readme",
-  "description": ""
+  "description": "An out-of-the-box `Storage API` helper to manage storage actions",
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/node": "^24.5.2",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.4.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.1"
+  }
 }
