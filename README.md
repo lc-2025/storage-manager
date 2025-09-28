@@ -53,9 +53,81 @@ An out-of-the-box `Storage API` _NPM_ package to manage browser storage actions.
 The package production version is available on _NPM_ at []().
 For any contribution, maintanance and/or trial needs, please refer to the following specifications.
 
+### Installation
+
+On terminal:
+
+```bash
+npm i @lc/storage-manager
+```
+
 ### Usage
 
-TODO:
+```js
+import useStorage from '@lc/storage-manager';
+
+// As a React hook
+const myComponent = () => {
+  // `localStorage` mode
+  const { setStorage, getStorage, deleteStorages } = useStorage();
+
+  const handleSomething = () => {
+    //...
+    setStorage('myItem', '123');
+    //...
+  }
+  //...
+  return (
+    //...
+  );
+}
+
+// As a standalone utility
+// `sessionStorage` mode
+const { setStorage, getStorage, deleteStorages } = useStorage('session');
+
+const myFunction = () => {
+  //...
+  const value = getStorage('myItem');
+  //...
+  deleteStorages(['myItem']);
+}
+```
+
+### API
+
+- **Mode**: [`local` | `session`] (default: `local`)
+
+Defines the Storage API object to be used
+
+```js
+  // Use `sessionStorage` API
+  const { setStorage } = useStorage('session');
+```
+
+- **Get**
+
+Invokes the `Storage API` `get` method
+
+```ts
+  getStorage(item: string): string | null
+```
+
+- **Set**
+
+Invokes the `Storage API` `set` method
+
+```ts
+  setStorage(item: string, value: string): void
+```
+
+- **Delete**
+
+Invokes the `Storage API` `delete` method on a provided collection
+
+```ts
+  deleteStorage(items: Array<string>): void
+```
 
 ## Contributing
 
