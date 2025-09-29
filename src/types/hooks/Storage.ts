@@ -1,8 +1,3 @@
-enum Storage {
-  Local = 'local',
-  Session = 'session',
-}
-
 type TUseStorage = {
   getStorage: (item: string) => string | null;
   setStorage: (item: string, value: string) => void;
@@ -11,5 +6,4 @@ type TUseStorage = {
 
 type TUseStorageType = 'local' | 'session';
 
-export { Storage };
 export type { TUseStorage, TUseStorageType };

@@ -1,4 +1,4 @@
-import { Storage } from '@/types/hooks/Storage.ts';
+import { Storage } from '@/utils/tokens';
 import type { TUseStorage, TUseStorageType } from '@/types/hooks/Storage.ts';
 
 /**

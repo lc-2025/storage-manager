@@ -1,3 +1,1 @@
-import useStorage from './hooks/Storage.ts';
-
-export default useStorage;
+export { default } from '@/hooks/Storage';

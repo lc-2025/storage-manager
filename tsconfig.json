@@ -9,17 +9,16 @@
     },
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
     "target": "esnext",
     "types": [],
     "lib": ["DOM", "ESNext"],
-    "allowImportingTsExtensions": true,
-    "emitDeclarationOnly": true,
     // Other Outputs
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "incremental": true,
+    "esModuleInterop": true,
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
@@ -29,7 +28,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
+    "removeComments": true,
     // Recommended Options
     "strict": true,
     "verbatimModuleSyntax": true,
@@ -37,5 +36,7 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  }
+  },
+  "include": ["./src**/*.ts"],
+  "exclude": ["dist", "node_modules"]
 }
