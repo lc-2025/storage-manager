@@ -1,5 +1,5 @@
 import useStorage from '../hooks/Storage';
-import { Action, Storage, TEST } from '../utils/tokens';
+import { Action, Storage, TEST, Type } from '../utils/tokens';
 import {
   TUseStorageDelete,
   TUseStorageGet,
@@ -7,9 +7,8 @@ import {
 } from '../types/hooks/Storage';
 
 describe('Package Unit Test', () => {
-  const { ITEM, TYPE } = TEST;
+  const { ITEM } = TEST;
   const { NAME, VALUE } = ITEM;
-  const { LOCAL, SESSION } = TYPE;
 
   /**
    * @description Storage getter assertion helper
@@ -33,12 +32,12 @@ describe('Package Unit Test', () => {
   /**
    * @description Storage removal assertion helper
    * @author Luca Cattide
-   * @param {TUseStorageDelete} deleteStotages
+   * @param {TUseStorageDelete} deleteStorages
    * @param {TUseStorageGet} getStorage
    * @param {TUseStorageSet} setStorage
    */
   const assertDeletion = (
-    deleteStotages: TUseStorageDelete,
+    deleteStorages: TUseStorageDelete,
     getStorage: TUseStorageGet,
     setStorage: TUseStorageSet,
   ): void => {
@@ -47,30 +46,30 @@ describe('Package Unit Test', () => {
 
     setStorage(item, VALUE);
     assertAction(items, getStorage, Action.Get);
-    deleteStotages(items);
+    deleteStorages(items);
     assertAction(items, getStorage, Action.Delete);
   };
 
   describe('Local Storage Unit Test', () => {
-    const { setStorage, getStorage, deleteStotages } = useStorage();
+    const { setStorage, getStorage, deleteStorages } = useStorage();
 
     // Setup
     beforeEach(() => {
       setStorage(NAME, VALUE);
     });
 
-    test(`It gets a new item via '${LOCAL}'`, () => {
+    test(`It gets a new item via '${Type.Local}'`, () => {
       assertAction([NAME], getStorage, Action.Get);
     });
 
-    test(`It deletes multiple items via '${LOCAL}'`, () => {
-      assertDeletion(deleteStotages, getStorage, setStorage);
+    test(`It deletes multiple items via '${Type.Local}'`, () => {
+      assertDeletion(deleteStorages, getStorage, setStorage);
     });
   });
 
   describe('Session Storage Unit Test', () => {
-    const { setStorage, getStorage, deleteStotages } = useStorage(
-      Storage.Session,
+    const { setStorage, getStorage, deleteStorages } = useStorage(
+      Type.Session,
     );
 
     // Setup
@@ -78,12 +77,12 @@ describe('Package Unit Test', () => {
       setStorage(NAME, VALUE);
     });
 
-    test(`It gets a new item via '${SESSION}'`, () => {
+    test(`It gets a new item via '${Type.Session}'`, () => {
       assertAction([NAME], getStorage, Action.Get);
     });
 
-    test(`It deletes multiple items via '${SESSION}'`, () => {
-      assertDeletion(deleteStotages, getStorage, setStorage);
+    test(`It deletes multiple items via '${Type.Session}'`, () => {
+      assertDeletion(deleteStorages, getStorage, setStorage);
     });
   });
 });
