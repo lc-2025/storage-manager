@@ -22,6 +22,7 @@ if [[ $BRANCH =~ $REGEX_MAJOR || $BRANCH =~ $REGEX_MINOR || $BRANCH =~ $REGEX_PA
   echo "Increasing package version to $VERSION..."
   npm version $VERSION
   echo "Package version increased to $(node -p -e "require('./package.json').version")"
+  git add .
 fi
 
 exit 1
