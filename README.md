@@ -65,8 +65,8 @@ const myFunction = () => {
 Defines the Storage API object to be used
 
 ```js
-  // Use `sessionStorage` API
-  const { setStorage } = useStorage('session');
+// Use `sessionStorage` API
+const { setStorage } = useStorage('session');
 ```
 
 - **Get**
@@ -136,6 +136,8 @@ npm run test:ci
 ```
 
 ### Deploy
+
+TODO: Check if needed or not (Husky?)
 
 _Storage Manager_ is integrated and delivered to production via _GitHub Actions_ workflows pipeline, where the package is being set up, tested and built.
 Then the artifacts are deployed on _NPM_ registry available at [TODO:]().

@@ -7,7 +7,9 @@
   "scripts": {
     "lint": "eslint . && prettier --write . && prettier --check .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --project ./tsconfig.json"
+    "test:ci": "TODO:",
+    "build": "tsc --project ./tsconfig.json",
+    "deploy": "TODO:"
   },
   "repository": {
     "type": "git",
