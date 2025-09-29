@@ -74,7 +74,7 @@ const { setStorage } = useStorage('session');
 Invokes the `Storage API` `get` method
 
 ```ts
-  getStorage(item: string): string | null
+getStorage(item: string): string | null
 ```
 
 - **Set**
@@ -82,7 +82,7 @@ Invokes the `Storage API` `get` method
 Invokes the `Storage API` `set` method
 
 ```ts
-  setStorage(item: string, value: string): void
+setStorage(item: string, value: string): void
 ```
 
 - **Delete**
@@ -90,7 +90,7 @@ Invokes the `Storage API` `set` method
 Invokes the `Storage API` `delete` method on a provided collection
 
 ```ts
-  deleteStorage(items: Array<string>): void
+deleteStorage(items: Array<string>): void
 ```
 
 ## Contributing
