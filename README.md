@@ -10,47 +10,12 @@ An out-of-the-box `Storage API` _NPM_ package to manage browser storage actions.
 
 ## Features
 
-- Both Local than Session objects
+- Both Local than Session objects support
 - Usable as a standalone utility as well as a _React_ hook
-
-## Stack
-
-- TypeScript
-- Bash
-
-### Environments
-
-- DOM
-
-### Frameworks
-
-- Jest
-
-### Linters/Plugins
-
-- ESLint
-- Prettier
-
-### Compilers
-
-- TypeScript
-
-### Testing
-
-- Jest
-
-### Versioning
-
-- GitHub
-- Husky
-
-### Deployment
-
-- NPM registry
 
 ## Getting Started
 
-The package production version is available on _NPM_ at []().
+The package production version is available on _NPM_ at [TODO:]().
 For any contribution, maintanance and/or trial needs, please refer to the following specifications.
 
 ### Installation
@@ -76,14 +41,13 @@ const myComponent = () => {
     setStorage('myItem', '123');
     //...
   }
-  //...
+
   return (
     //...
   );
 }
 
-// As a standalone utility
-// `sessionStorage` mode
+// As a standalone utility - `sessionStorage` mode
 const { setStorage, getStorage, deleteStorages } = useStorage('session');
 
 const myFunction = () => {
@@ -96,7 +60,7 @@ const myFunction = () => {
 
 ### API
 
-- **Mode**: [`local` | `session`] (default: `local`)
+- **Type**: `[local|session]` (default: `local`)
 
 Defines the Storage API object to be used
 
@@ -174,7 +138,7 @@ npm run test:ci
 ### Deploy
 
 _Storage Manager_ is integrated and delivered to production via _GitHub Actions_ workflows pipeline, where the package is being set up, tested and built.
-Then the artifacts are deployed on _NPM_ registry available at []().
+Then the artifacts are deployed on _NPM_ registry available at [TODO:]().
 
 - To deploy the production version
 

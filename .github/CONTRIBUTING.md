@@ -37,12 +37,12 @@ There is one main branch, defined as:
 
 Additional branches (i.e. features, bugs, etc.) are named as follows:
 
-- **[task/fix/etc.]/[feature]**
+- **[api|feature|hotfix]/[subject]**
 
 ```bash
 i.e.
 
-chore/Setup
+feature/someting-new
 ```
 
 Contributions implement the [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) framework.
@@ -59,7 +59,7 @@ Official Udacity Git commit message style guide is used. Please [consult the doc
 
 ### Merges
 
-- **main**: merging from **[feature-branch]**;
+- **main**: merging from **[api|feature|hotfix-branch]**;
 
 ### Releases
 
