@@ -2,7 +2,7 @@ name: Storage Manager CD
 run-name: Storage Manager Continuous-Delivery
 on:
   workflow_run:
-    workflows: [LC 2.0 CI]
+    workflows: [Storage Manager CI]
     types: [completed]
     branches: [main]
 env:
