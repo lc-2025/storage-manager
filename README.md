@@ -15,7 +15,7 @@ An out-of-the-box `Storage API` _NPM_ package to manage browser storage actions.
 
 ## Getting Started
 
-The package production version is available on _NPM_ at [TODO:]().
+The package production version is available on _NPM_ at [https://npmjs.com/package/@lc/storage-manager](https://npmjs.com/package/@lc/storage-manager).
 For any contribution, maintanance and/or trial needs, please refer to the following specifications.
 
 ### Installation
@@ -137,10 +137,8 @@ npm run test:ci
 
 ### Deploy
 
-TODO: Check if needed or not (Husky?)
-
 _Storage Manager_ is integrated and delivered to production via _GitHub Actions_ workflows pipeline, where the package is being set up, tested and built.
-Then the artifacts are deployed on _NPM_ registry available at [TODO:]().
+Then the artifacts are deployed on _NPM_ registry available at [https://npmjs.com/package/@lc/storage-manager](https://npmjs.com/package/@lc/storage-manager).
 
 - To deploy the production version
 
