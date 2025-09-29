@@ -1,4 +1,5 @@
 /src
+release
 CODE_OF_CONDUCT.md
 eslint.config.ts
 tsconfig.json
