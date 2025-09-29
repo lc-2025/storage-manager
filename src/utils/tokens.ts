@@ -4,8 +4,8 @@ enum Action {
 }
 
 enum Storage {
-  Local = 'local',
-  Session = 'session',
+  Local = 'localStorage',
+  Session = 'sessionStorage',
 }
 
 const TEST = {
@@ -13,10 +13,11 @@ const TEST = {
     NAME: 'test-storage',
     VALUE: '123',
   },
-  TYPE: {
-    LOCAL: 'localStorage',
-    SESSION: 'sessionStorage',
-  },
 };
 
-export { Action, Storage, TEST };
+enum Type {
+  Local = 'local',
+  Session = 'session',
+}
+
+export { Action, Storage, TEST, Type };

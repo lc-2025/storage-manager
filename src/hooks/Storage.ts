@@ -1,5 +1,5 @@
-import { Storage } from '@/utils/tokens';
-import type { TUseStorage, TUseStorageType } from '@/types/hooks/Storage.ts';
+import { Storage, Type } from '../utils/tokens';
+import type { TUseStorage, TUseStorageType } from '../types/hooks/Storage.ts';
 
 /**
  * @description Storage hook
@@ -10,12 +10,16 @@ import type { TUseStorage, TUseStorageType } from '@/types/hooks/Storage.ts';
  */
 const useStorage = (type?: TUseStorageType): TUseStorage => {
   const storageType = {
+    [Type.Local]: Storage.Local,
+    [Type.Session]: Storage.Session,
+  };
+  const selectedType = type ? storageType[type] : Storage.Local;
+  const storage = {
     [Storage.Local]: localStorage,
     [Storage.Session]: sessionStorage,
   };
-  const storage = type
-    ? storageType[type as keyof typeof storageType]
-    : storageType[Storage.Local];
+  const storageSelected = storage[selectedType];
+  const isSupported = window[selectedType];
 
   /**
    * @description Storage getter
@@ -27,8 +31,8 @@ const useStorage = (type?: TUseStorageType): TUseStorage => {
   const getStorage = (item: string): string | null => {
     let element = null;
 
-    if (window[type as keyof typeof window]) {
-      element = storage.getItem(item);
+    if (isSupported) {
+      element = storageSelected.getItem(item);
     }
 
     return element;
@@ -42,8 +46,8 @@ const useStorage = (type?: TUseStorageType): TUseStorage => {
    * @param {string} value
    */
   const setStorage = (item: string, value: string): void => {
-    if (window[type as keyof typeof window]) {
-      storage.setItem(item, value);
+    if (isSupported) {
+      storageSelected.setItem(item, value);
     }
   };
 
@@ -54,9 +58,9 @@ const useStorage = (type?: TUseStorageType): TUseStorage => {
    * @param {Array<string>} items
    */
   const deleteStorages = (items: Array<string>): void => {
-    if (window[type as keyof typeof window]) {
+    if (isSupported) {
       items.forEach((item) => {
-        storage.removeItem(item);
+        storageSelected.removeItem(item);
       });
     }
   };

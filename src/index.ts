@@ -1,1 +1,1 @@
-export { default } from '@/hooks/Storage';
+export { default as useStorage } from './hooks/Storage';
