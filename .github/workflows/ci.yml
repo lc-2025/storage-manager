@@ -53,7 +53,7 @@ jobs:
         with:
           name: ${{ env.ARTIFACTS_NAME }}
       - name: Test applications - Unit
-        run: npm run test
+        run: npm run test:ci
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
         with:

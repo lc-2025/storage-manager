@@ -22,6 +22,7 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    "allowJs": true,
     // Style Options
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -31,12 +32,12 @@
     "removeComments": true,
     // Recommended Options
     "strict": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
   },
   "include": ["./src**/*.ts"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["babel.config.cjs", "dist", "node_modules"]
 }

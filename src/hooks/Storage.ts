@@ -3,6 +3,7 @@ import type { TUseStorage, TUseStorageType } from '@/types/hooks/Storage.ts';
 
 /**
  * @description Storage hook
+ * Ensures to provide a supported Storage API set of methods
  * @author Luca Cattide
  * @param {TUseStorageType} [type]
  * @returns {*}  {TUseStorage}
@@ -50,7 +51,6 @@ const useStorage = (type?: TUseStorageType): TUseStorage => {
    * @description Storage removal
    * Deletes one or multiple items from the Local/Session Storage
    * @author Luca Cattide
-   * @date 19/07/2025
    * @param {Array<string>} items
    */
   const deleteStorages = (items: Array<string>): void => {

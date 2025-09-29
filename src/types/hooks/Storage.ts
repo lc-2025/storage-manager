@@ -1,9 +1,21 @@
 type TUseStorage = {
-  getStorage: (item: string) => string | null;
-  setStorage: (item: string, value: string) => void;
-  deleteStorages: (items: Array<string>) => void;
+  getStorage: TUseStorageGet;
+  setStorage: TUseStorageSet;
+  deleteStorages: TUseStorageDelete;
 };
+
+type TUseStorageDelete = (items: Array<string>) => void;
+
+type TUseStorageGet = (item: string) => string | null;
+
+type TUseStorageSet = (item: string, value: string) => void;
 
 type TUseStorageType = 'local' | 'session';
 
-export type { TUseStorage, TUseStorageType };
+export type {
+  TUseStorage,
+  TUseStorageDelete,
+  TUseStorageGet,
+  TUseStorageSet,
+  TUseStorageType,
+};
