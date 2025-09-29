@@ -123,7 +123,7 @@ npm run build
 
 On terminal, from project root:
 
-- To run the unit/integration tests in `development` mode
+- To run the unit tests in `development` mode
 
 ```bash
 npm run test
