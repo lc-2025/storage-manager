@@ -1,5 +1,5 @@
 import useStorage from '../hooks/Storage';
-import { Action, Storage, TEST, Type } from '../utils/tokens';
+import { Action, TEST, Type } from '../utils/tokens';
 import {
   TUseStorageDelete,
   TUseStorageGet,
