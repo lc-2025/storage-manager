@@ -31,10 +31,15 @@ jobs:
           name: storage-manager-production
           github-token: ${{ secrets.GH_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
       - name: Deploy
+        run: npm run deploy
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run deploy
   failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
