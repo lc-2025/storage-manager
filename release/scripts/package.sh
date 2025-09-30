@@ -20,7 +20,7 @@ fi
 # Assign version according to branch type
 if [[ $BRANCH =~ $REGEX_MAJOR || $BRANCH =~ $REGEX_MINOR || $BRANCH =~ $REGEX_PATCH ]]; then
   echo "Increasing package version to $VERSION..."
-  npm version $VERSION
+  #npm version $VERSION
   echo "Package version increased to $(node -p -e "require('./package.json').version")"
   git add .
 fi
