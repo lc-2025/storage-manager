@@ -23,9 +23,11 @@ describe('Package Unit Test', () => {
     action: Action,
   ): void => {
     items.forEach((item) => {
-      action === Action.Get
-        ? expect(storage(item)).toBe(VALUE)
-        : expect(storage(item)).toBeNull();
+      if (action === Action.Get) {
+        expect(storage(item)).toBe(VALUE);
+      } else {
+        expect(storage(item)).toBeNull();
+      }
     });
   };
 
@@ -68,9 +70,7 @@ describe('Package Unit Test', () => {
   });
 
   describe('Session Storage Unit Test', () => {
-    const { setStorage, getStorage, deleteStorages } = useStorage(
-      Type.Session,
-    );
+    const { setStorage, getStorage, deleteStorages } = useStorage(Type.Session);
 
     // Setup
     beforeEach(() => {

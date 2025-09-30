@@ -15,7 +15,7 @@ An out-of-the-box `Storage API` _NPM_ package to manage browser storage actions.
 
 ## Getting Started
 
-The package production version is available on _NPM_ at [https://npmjs.com/package/@lc/storage-manager](https://npmjs.com/package/@lc/storage-manager).
+The package production version is available on _NPM_ at [https://npmjs.com/package/@lc-2025/storage-manager](https://npmjs.com/package/@lc-2025/storage-manager).
 For any contribution, maintanance and/or trial needs, please refer to the following specifications.
 
 ### Installation
@@ -23,13 +23,13 @@ For any contribution, maintanance and/or trial needs, please refer to the follow
 On terminal:
 
 ```bash
-npm i @lc/storage-manager
+npm i @lc-2025/storage-manager
 ```
 
 ### Usage
 
 ```js
-import useStorage from '@lc/storage-manager';
+import useStorage from '@lc-2025/storage-manager';
 
 // As a React hook
 const myComponent = () => {
@@ -138,7 +138,7 @@ npm run test:ci
 ### Deploy
 
 _Storage Manager_ is integrated and delivered to production via _GitHub Actions_ workflows pipeline, where the package is being set up, tested and built.
-Then the artifacts are deployed on _NPM_ registry available at [https://npmjs.com/package/@lc/storage-manager](https://npmjs.com/package/@lc/storage-manager).
+Then the artifacts are deployed on _NPM_ registry available at [https://npmjs.com/package/@lc-2025/storage-manager](https://npmjs.com/package/@lc-2025/storage-manager).
 
 - To deploy the production version
 
