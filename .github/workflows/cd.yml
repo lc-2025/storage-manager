@@ -16,6 +16,10 @@ jobs:
     outputs:
       changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       # Ensure to trigger the deployment only with bumped versions
       - name: Getting changed files
         uses: tj-actions/changed-files@v47
@@ -34,8 +38,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Getting dependencies
         uses: actions/cache/restore@v4
         with:
