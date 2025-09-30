@@ -24,7 +24,7 @@ An out-of-the-box `Storage API` _NPM_ package to manage browser storage actions.
 - **Testing**: Jest, Testing Library
 - **Versioning**: GitHub, Husky
 - **Continuous-Integration/Delivery**: GitHub Actions
-- **Deployment**: NPM
+- **Deployment**: NPM Registry
 
 ## Getting Started
 
