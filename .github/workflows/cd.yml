@@ -14,13 +14,12 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     outputs:
-      changed: ${{ steps.verify-changed-files.outputs.files_changed }}
-      changed-files: ${{ steps.verify-changed-files.outputs.changed_files }}
+      changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
     steps:
       # Ensure to trigger the deployment only with bumped versions
-      - name: Verify Changed files
-        uses: tj-actions/verify-changed-files@v20.0.4
-        id: verify-changed-files
+      - name: Getting changed files
+        uses: tj-actions/changed-files@v47
+        id: changed-files
         with:
           files: |
             ./package.json
@@ -31,10 +30,12 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.bump.outputs.changed == 'true' && contains(needs.bump.outputs.changed-files, 'version') }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && contains(needs.bump.outputs.changed-files, 'version') }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Getting dependencies
         uses: actions/cache/restore@v4
         with:
