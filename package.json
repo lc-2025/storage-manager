@@ -9,7 +9,8 @@
     "test": "jest --watch",
     "test:ci": "jest",
     "build": "tsc --project ./tsconfig.json",
-    "deploy": "npm publish --tag latest --provenance --access public"
+    "deploy": "npm publish --tag latest --provenance --access public",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
