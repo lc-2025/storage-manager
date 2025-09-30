@@ -13,6 +13,19 @@ An out-of-the-box `Storage API` _NPM_ package to manage browser storage actions.
 - Both Local than Session objects support
 - Usable as a standalone utility as well as a _React_ hook
 
+## Stack
+
+- **Languages**: JavaScript, Typescript, YAML, Bash
+- **Environments**: DOM
+- **Libraries**: Testing Library
+- **Frameworks**: Jest
+- **Linters/Plugins**: ESLint, Prettier
+- **Compilers**: Babel, TypeScript
+- **Testing**: Jest, Testing Library
+- **Versioning**: GitHub, Husky
+- **Continuous-Integration/Delivery**: GitHub Actions
+- **Deployment**: NPM
+
 ## Getting Started
 
 The package production version is available on _NPM_ at [https://npmjs.com/package/@lc-2025/storage-manager](https://npmjs.com/package/@lc-2025/storage-manager).
