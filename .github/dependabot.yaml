@@ -9,6 +9,6 @@ updates:
     assignees:
       - 'lc-2025'
     labels:
-      - dependencies
+      - enhancement
     commit-message:
       prefix: 'chore: '
