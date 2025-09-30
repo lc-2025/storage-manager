@@ -8,7 +8,5 @@ updates:
       interval: 'weekly'
     assignees:
       - 'lc-2025'
-    labels:
-      - enhancement
     commit-message:
       prefix: 'chore: '
