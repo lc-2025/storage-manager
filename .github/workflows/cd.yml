@@ -29,8 +29,7 @@ jobs:
         id: changed-files
         with:
           files: |
-            ./package.json
-            ./package-lock.json
+            package*
       - name: debug
         env:
           KEY_CHANGED: ${{ steps.changed-files.outputs.changed_keys }}
