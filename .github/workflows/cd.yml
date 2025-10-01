@@ -28,8 +28,9 @@ jobs:
         uses: tj-actions/changed-files@v47
         id: changed-files
         with:
-          files: |
-            package*
+          files_yaml: |
+            package:
+              - 'package*'
       - name: debug
         env:
           KEY_CHANGED: ${{ steps.changed-files.outputs.changed_keys }}
