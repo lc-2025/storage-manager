@@ -27,6 +27,10 @@ jobs:
       - name: Getting changed files
         uses: tj-actions/changed-files@v47
         id: changed-files
+        with:
+          files_yaml: |
+            package:
+              - 'package*'
       - name: debug
         env:
           KEY_CHANGED: ${{ steps.changed-files.outputs.changed_keys }}
