@@ -75,7 +75,7 @@ const myFunction = () => {
 
 - **Type**: `[local|session]` (default: `local`)
 
-Defines the Storage API object to be used
+Defines the `Storage API` object to be used
 
 ```js
 // Use `sessionStorage` API
@@ -84,7 +84,7 @@ const { setStorage } = useStorage('session');
 
 - **Get**
 
-Invokes the `Storage API` `get` method
+Invokes the `Storage API` `getItem` method
 
 ```ts
 getStorage(item: string): string | null
@@ -92,7 +92,7 @@ getStorage(item: string): string | null
 
 - **Set**
 
-Invokes the `Storage API` `set` method
+Invokes the `Storage API` `setItem` method
 
 ```ts
 setStorage(item: string, value: string): void
@@ -100,7 +100,7 @@ setStorage(item: string, value: string): void
 
 - **Delete**
 
-Invokes the `Storage API` `delete` method on a provided collection
+Invokes the `Storage API` `removeItem` method on a provided collection
 
 ```ts
 deleteStorage(items: Array<string>): void

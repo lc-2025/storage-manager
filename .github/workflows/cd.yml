@@ -17,49 +17,23 @@ jobs:
       contents: read
       pull-requests: read
     outputs:
-      changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
+      deployment: ${{ steps.version-bump.outputs.deploy }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
       # Ensure to trigger the deployment only with bumped versions
-      - name: Getting changed files
-        uses: tj-actions/changed-files@v47
-        id: changed-files
-        with:
-          files_yaml: |
-            package:
-              - 'package*'
-      - name: debug
-        env:
-          KEY_CHANGED: ${{ steps.changed-files.outputs.changed_keys }}
-          KEY_MODIFIED: ${{ steps.changed-files.outputs.modified_keys }}
-          MODIFIED: ${{ steps.changed-files.outputs.all_modified_files }}
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-        run: |
-          for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
-          done
-
-          for file in ${MODIFIED}; do
-            echo "$file was changed"
-          done
-
-          for file in ${KEY_MODIFIED}; do
-            echo "$file was changed"
-          done
-
-          for file in ${KEY_CHANGED}; do
-            echo "$file was changed"
-          done
+      - name: Checking version bump
+        id: version-bump
+        run: echo "deploy=$(./release/scripts/deploy.sh)" >> "$GITHUB_OUTPUT"
   deploy:
     runs-on: ubuntu-latest
     needs: bump
     permissions:
       contents: read
       id-token: write
-    if: ${{ github.event.workflow_run.conclusion == 'success' && contains(needs.bump.outputs.changed-files, 'version') }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.bump.outputs.deployment == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
