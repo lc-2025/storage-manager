@@ -17,7 +17,7 @@ jobs:
       contents: read
       pull-requests: read
     outputs:
-      deployment: ${{ steps.version-bump.outputs.DEPLOY }}
+      deployment: ${{ steps.version-bump.outputs.deploy }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,7 +33,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.bump.outputs.deployment == true }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.bump.outputs.deployment == 'true' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
