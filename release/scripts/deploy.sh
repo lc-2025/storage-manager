@@ -7,7 +7,7 @@ if [[ $UPDATE != *"version"* ]]; then
   echo "Version bumped - Deployment allowed."
 
   DEPLOY=true
-elif
+else
   echo "No version bumped."
 fi
 
