@@ -35,6 +35,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   },
-  "include": ["./src**/*.ts", "jest.setup.ts"],
+  "include": ["./src**/*.ts"],
   "exclude": ["babel.config.cjs", "dist", "node_modules"]
 }
