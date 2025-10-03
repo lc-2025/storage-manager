@@ -1,5 +1,5 @@
 {
-  "name": "@lc-2025/storage-managers",
+  "name": "@lc-2025/storage-manager",
   "version": "1.0.1",
   "type": "module",
   "main": "dist/src/index.js",
