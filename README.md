@@ -42,12 +42,12 @@ npm i @lc-2025/storage-manager
 ### Usage
 
 ```js
-import useStorage from '@lc-2025/storage-manager';
+import { useStorage } from '@lc-2025/storage-manager';
 
 // As a React hook
 const myComponent = () => {
-  // `localStorage` mode
-  const { setStorage, getStorage, deleteStorages } = useStorage();
+  // As `localStorage`
+  const { setStorage } = useStorage();
 
   const handleSomething = () => {
     //...
@@ -60,8 +60,8 @@ const myComponent = () => {
   );
 }
 
-// As a standalone utility - `sessionStorage` mode
-const { setStorage, getStorage, deleteStorages } = useStorage('session');
+// As a standalone utility - `sessionStorage`
+const { getStorage, deleteStorages } = useStorage('session');
 
 const myFunction = () => {
   //...
@@ -103,7 +103,7 @@ setStorage(item: string, value: string): void
 Invokes the `Storage API` `removeItem` method on a provided collection
 
 ```ts
-deleteStorage(items: Array<string>): void
+deleteStorages(items: Array<string>): void
 ```
 
 ## Contributing
