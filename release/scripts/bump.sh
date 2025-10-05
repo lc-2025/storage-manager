@@ -1,10 +1,10 @@
 #!/bin/bash
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-BRANCH_MAJOR="api"
+BRANCH_MAJOR="feature_api"
 BRANCH_MINOR="feature"
 BRANCH_PATCH="hotfix"
-REGEX_SUFFIX="\/([a-z]|[A-Z]|[0-9]|\-)+"
+REGEX_SUFFIX="\_([a-z]|[A-Z]|[0-9]|\-)+"
 REGEX_MAJOR="^(${BRANCH_MAJOR})${REGEX_SUFFIX}$"
 REGEX_MINOR="^(${BRANCH_MINOR})${REGEX_SUFFIX}$"
 REGEX_PATCH="^(${BRANCH_PATCH})${REGEX_SUFFIX}$"
@@ -24,8 +24,15 @@ fi
 # Assign version according to branch type
 if [[ "$BRANCH" =~ $REGEX_ALL ]]; then
   echo "Increasing package version to $VERSION..."
+  npm config set sign-git-tag true
   npm version $VERSION
-  echo "Package version increased to $(node -p -e "require('./package.json').version")"
+
+  VERSION_CURRENT="$(node -p -e "require('./package.json').version")"
+  TAG="v$VERSION_CURRENT"
+
+  git tag -v $TAG
+  git push --tags
+  echo "Package version increased to $VERSION_CURRENT"
   git add .
 fi
 

@@ -2,9 +2,9 @@ name: Storage Manager CI
 run-name: Storage Manager Continuous-Integration
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
 permissions:
   contents: read
 env:
