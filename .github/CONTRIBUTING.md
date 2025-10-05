@@ -32,6 +32,7 @@ Third-party linter plugins like ESLint, Prettier or any other similar resource a
 ### Branches
 
 Contributions implement the [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) framework. Please read about its specifications before commit on any branch.
+
 Additionally, in order to allow the CI/CD pipelines to work properly, be sure to stricktly name branches as follows:
 
 - **[feature_api|feature|hotfix]\_[subject]**
@@ -56,4 +57,5 @@ Official Udacity Git commit message style guide is used. Please [consult the doc
 ## Releases
 
 Currently, the release is automatically managed via Git Hooks.
+
 The releasing process follows the [SemVer](https://semver.org/) specification. Please read about its guidelines before draft any release manually.
