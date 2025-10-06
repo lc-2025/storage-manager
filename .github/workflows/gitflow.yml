@@ -9,5 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check branches
-        if: ${{ (github.base_ref == 'main' && ! contains(fromJSON('["release", "hotfix"]'), github.head_ref)) || (github.base_ref == 'develop' && ! contains(fromJSON('["feature", "release", "hotfix"]'), github.head_ref)) }}
+        # Available merges check - See: ../../release/scripts/gitflow.sh
+        if: ${{ (github.base_ref == 'main' && !contains(fromJSON('["release", "hotfix"]'), github.head_ref)) || (github.base_ref == 'develop' && !contains(fromJSON('["feature", "release", "hotfix"]'), github.head_ref)) }}
         run: ./release/scripts/gitflow.sh
