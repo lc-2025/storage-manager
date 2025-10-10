@@ -33,7 +33,7 @@ For any contribution, maintanance and/or trial needs, please refer to the follow
 
 ### Installation
 
-On terminal:
+On terminal, from project root:
 
 ```bash
 npm i @lc-2025/storage-manager
@@ -111,12 +111,6 @@ deleteStorages(items: Array<string>): void
 ### Setting Up
 
 On terminal, from project root:
-
-- To install dependencies
-
-```bash
-npm run setup
-```
 
 - To lint the sources
 
