@@ -41,7 +41,7 @@ npm i @lc-2025/storage-manager
 
 ### Usage
 
-```js
+```jsx
 import { useStorage } from '@lc-2025/storage-manager';
 
 // As a React hook
@@ -75,42 +75,48 @@ const myFunction = () => {
 
 - **Type**: `[local|session]` (default: `local`)
 
-Defines the `Storage API` object to be used
+  Defines the `Storage API` object to be used
 
-```js
-// Use `sessionStorage` API
-const { setStorage } = useStorage('session');
-```
+  ```js
+  // Use `sessionStorage` API
+  const { setStorage } = useStorage('session');
+  ```
 
 - **Get**
 
-Invokes the `Storage API` `getItem` method
+  Invokes the `Storage API` `getItem` method
 
-```ts
-getStorage(item: string): string | null
-```
+  ```ts
+  getStorage(item: string): string | null
+  ```
 
 - **Set**
 
-Invokes the `Storage API` `setItem` method
+  Invokes the `Storage API` `setItem` method
 
-```ts
-setStorage(item: string, value: string): void
-```
+  ```ts
+  setStorage(item: string, value: string): void
+  ```
 
 - **Delete**
 
-Invokes the `Storage API` `removeItem` method on a provided collection
+  Invokes the `Storage API` `removeItem` method on a provided collection
 
-```ts
-deleteStorages(items: Array<string>): void
-```
+  ```ts
+  deleteStorages(items: Array<string>): void
+  ```
 
 ## Contributing
 
 ### Setting Up
 
 On terminal, from project root:
+
+- To install dependencies
+
+```bash
+npm run install
+```
 
 - To lint the sources
 
