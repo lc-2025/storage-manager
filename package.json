@@ -17,12 +17,16 @@
     "url": "git+https://github.com/lc-2025/storage-manager.git"
   },
   "keywords": [
-    "storage",
-    "manager",
     "localstorage",
     "sessionstorage",
-    "react",
-    "hook"
+    "web-storage",
+    "typescript",
+    "react-hook",
+    "storage-api",
+    "npm-package",
+    "client-side",
+    "open-source",
+    "javascript"
   ],
   "author": "LC",
   "license": "MIT",
