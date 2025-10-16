@@ -41,10 +41,13 @@ npm i @lc-2025/storage-manager
 
 ### Usage
 
+- As a _React_ hook:
+
 ```jsx
+// MyComponent.{jsx|tsx}
+
 import { useStorage } from '@lc-2025/storage-manager';
 
-// As a React hook
 const myComponent = () => {
   // As `localStorage`
   const { setStorage } = useStorage();
@@ -59,16 +62,24 @@ const myComponent = () => {
     //...
   );
 }
+```
 
-// As a standalone utility - `sessionStorage`
+- As a standalone utility (`sessionStorage`):
+
+```jsx
+// myFeature.{js|ts}
+
 const { getStorage, deleteStorages } = useStorage('session');
 
 const myFunction = () => {
   //...
+
   const value = getStorage('myItem');
+
   //...
+
   deleteStorages(['myItem']);
-}
+};
 ```
 
 ### API
