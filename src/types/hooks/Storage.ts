@@ -4,6 +4,11 @@ type TUseStorage = {
   deleteStorages: TUseStorageDelete;
 };
 
+type TUseStorageCheck = {
+  isSupported: Storage;
+  storageSelected: Storage;
+};
+
 type TUseStorageDelete = (items: Array<string>) => void;
 
 type TUseStorageGet = (item: string) => string | null;
@@ -14,6 +19,7 @@ type TUseStorageType = 'local' | 'session';
 
 export type {
   TUseStorage,
+  TUseStorageCheck,
   TUseStorageDelete,
   TUseStorageGet,
   TUseStorageSet,

@@ -1,5 +1,9 @@
 import { Storage, Type } from '../utils/tokens';
-import type { TUseStorage, TUseStorageType } from '../types/hooks/Storage.ts';
+import type {
+  TUseStorage,
+  TUseStorageCheck,
+  TUseStorageType,
+} from '../types/hooks/Storage.ts';
 
 /**
  * @description Storage hook
@@ -9,17 +13,28 @@ import type { TUseStorage, TUseStorageType } from '../types/hooks/Storage.ts';
  * @returns {*}  {TUseStorage}
  */
 const useStorage = (type?: TUseStorageType): TUseStorage => {
-  const storageType = {
-    [Type.Local]: Storage.Local,
-    [Type.Session]: Storage.Session,
+  /**
+   * @description Storage API support check
+   * Verifies if the current browser supports the Storage API
+   * @author Luca Cattide
+   * @date 06/11/2025
+   * @returns {*}  {TUseStorageCheck}
+   */
+  const checkSupport = (): TUseStorageCheck => {
+    const storageType = {
+      [Type.Local]: Storage.Local,
+      [Type.Session]: Storage.Session,
+    };
+    const selectedType = type ? storageType[type] : Storage.Local;
+    const storage = {
+      [Storage.Local]: localStorage,
+      [Storage.Session]: sessionStorage,
+    };
+    const storageSelected = storage[selectedType];
+    const isSupported = window[selectedType];
+
+    return { isSupported, storageSelected };
   };
-  const selectedType = type ? storageType[type] : Storage.Local;
-  const storage = {
-    [Storage.Local]: localStorage,
-    [Storage.Session]: sessionStorage,
-  };
-  const storageSelected = storage[selectedType];
-  const isSupported = window[selectedType];
 
   /**
    * @description Storage getter
@@ -29,10 +44,12 @@ const useStorage = (type?: TUseStorageType): TUseStorage => {
    * @returns {*}  {(string | null)}
    */
   const getStorage = (item: string): string | null => {
+    const support = checkSupport();
+    const { isSupported } = support;
     let element = null;
 
     if (isSupported) {
-      element = storageSelected.getItem(item);
+      element = support.storageSelected.getItem(item);
     }
 
     return element;
@@ -46,8 +63,11 @@ const useStorage = (type?: TUseStorageType): TUseStorage => {
    * @param {string} value
    */
   const setStorage = (item: string, value: string): void => {
+    const support = checkSupport();
+    const { isSupported } = support;
+
     if (isSupported) {
-      storageSelected.setItem(item, value);
+      support.storageSelected.setItem(item, value);
     }
   };
 
@@ -58,9 +78,12 @@ const useStorage = (type?: TUseStorageType): TUseStorage => {
    * @param {Array<string>} items
    */
   const deleteStorages = (items: Array<string>): void => {
+    const support = checkSupport();
+    const { isSupported } = support;
+
     if (isSupported) {
       items.forEach((item) => {
-        storageSelected.removeItem(item);
+        support.storageSelected.removeItem(item);
       });
     }
   };
